@@ -298,6 +298,7 @@ class Particle(object):
                 # to account for observing several features in one time step
                 lh =  np.exp(-.5*error.T@np.linalg.inv(Q)@error) / np.sqrt(2*np.pi*np.linalg.det(Q))
                 lh = lh[0][0]
+                lh *= self.weight
                 self.weight = lh
 
 
